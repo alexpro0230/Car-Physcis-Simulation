@@ -15,10 +15,16 @@ public class CarPhysics2 : MonoBehaviour {
     [Header("\nDriving Simulation Variables")]
     public float torque;
     public float BreakForce;
+    public float turbo;
 
     private bool isBraking;
     private float breakForce;
-    
+
+    [Header("\nDebugging")]
+    public bool EnableDebugging;
+    public bool DrawCarForwardDirection;
+    public bool DrawOnWheelPosition;
+
     [Header("\nComponents")]
     public Rigidbody rb;
 
@@ -40,7 +46,7 @@ public class CarPhysics2 : MonoBehaviour {
     }
 
 
-    #region simulation
+#region simulation
     
     
     void applyBrake() {
@@ -66,9 +72,9 @@ public class CarPhysics2 : MonoBehaviour {
     }
 
 
-    #endregion
+#endregion
 
-    #region input
+#region input
     
     void GetInput() {
         if (Input.GetKeyDown(KeyCode.Space)) {
@@ -76,11 +82,17 @@ public class CarPhysics2 : MonoBehaviour {
         } else if (Input.GetKeyUp(KeyCode.Space)) {
             isBraking = false;
         }
+
+        if(Input.GetKeyDown(KeyCode.LeftShift)) {
+            torque += turbo;
+        } else if(Input.GetKeyUp(KeyCode.LeftShift)) {
+            torque -= turbo;
+        }
     }
     
-    #endregion
+#endregion
 
-    #region graphic
+#region graphic
 
 
     void UpdateWheelGraphics() {
@@ -95,5 +107,25 @@ public class CarPhysics2 : MonoBehaviour {
         }
     }
 
-    #endregion
+    private void OnDrawGizmos() {
+        if (EnableDebugging) {
+            if (DrawCarForwardDirection) {
+                Gizmos.color = Color.red;
+                Gizmos.DrawLine(transform.Find("front part").position, transform.position + transform.forward * 10);
+                Gizmos.color = Color.green;
+                Gizmos.DrawCube(transform.position + transform.forward * 10, Vector3.one / 5);
+            }
+
+            if (DrawOnWheelPosition) {
+                foreach (WheelCollider wheel in allWheels) {
+                    if (wheel != null) {
+                        Gizmos.DrawCube(wheel.gameObject.transform.position, Vector3.one / 2);
+                        Gizmos.DrawLine(wheel.gameObject.transform.position, wheel.gameObject.transform.position + wheel.gameObject.transform.forward);
+                    }
+                }
+            }
+        }
+    }
+
+#endregion
 }
