@@ -68,5 +68,8 @@ public class CarPhysics : MonoBehaviour {
         Frr = -Crr * rb.velocity;
         Flong = Ftraction + Fdrag + Frr;
         acceleration = Flong;
+        velocity += acceleration * Time.deltaTime;
+
+        rb.velocity = velocity;
     }
 }
