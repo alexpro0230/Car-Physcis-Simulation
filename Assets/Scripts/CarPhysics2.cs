@@ -120,7 +120,6 @@ public class CarPhysics2 : MonoBehaviour {
                 foreach (WheelCollider wheel in allWheels) {
                     if (wheel != null) {
                         Gizmos.DrawCube(wheel.gameObject.transform.position, Vector3.one / 2);
-                        Gizmos.DrawLine(wheel.gameObject.transform.position, wheel.gameObject.transform.position + wheel.gameObject.transform.forward);
                     }
                 }
             }
