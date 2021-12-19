@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+
 public class CameraCarFollow : MonoBehaviour {
     public Vector3 DistanceFromCar;
     private GameObject car;
@@ -9,7 +10,7 @@ public class CameraCarFollow : MonoBehaviour {
     public bool RotateCamera;
 
     private void Start() {
-        car = GameObject.Find("Car");
+        car = GameObject.Find("car 1203 black");
     }
 
     private void Update() {
