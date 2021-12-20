@@ -481,13 +481,13 @@ WheelCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 466469633}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -0.12, z: 0}
   m_Radius: 0.3
   m_SuspensionSpring:
     spring: 35000
-    damper: 9000
+    damper: 4500
     targetPosition: 0.5
-  m_SuspensionDistance: 0.63
+  m_SuspensionDistance: 0.3
   m_ForceAppPointDistance: 0
   m_Mass: 100
   m_WheelDampingRate: 0.25
@@ -678,13 +678,13 @@ WheelCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 587674130}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -0.12, z: 0}
   m_Radius: 0.3
   m_SuspensionSpring:
     spring: 35000
-    damper: 9000
+    damper: 4500
     targetPosition: 0.5
-  m_SuspensionDistance: 0.63
+  m_SuspensionDistance: 0.3
   m_ForceAppPointDistance: 0
   m_Mass: 100
   m_WheelDampingRate: 0.25
@@ -934,13 +934,13 @@ WheelCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 803464611}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -0.12, z: 0}
   m_Radius: 0.3
   m_SuspensionSpring:
     spring: 35000
-    damper: 9000
+    damper: 4500
     targetPosition: 0.5
-  m_SuspensionDistance: 0.63
+  m_SuspensionDistance: 0.3
   m_ForceAppPointDistance: 0
   m_Mass: 100
   m_WheelDampingRate: 0.25
@@ -1185,13 +1185,13 @@ WheelCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1237700825}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -0.12, z: 0}
   m_Radius: 0.3
   m_SuspensionSpring:
     spring: 35000
-    damper: 9000
+    damper: 4500
     targetPosition: 0.5
-  m_SuspensionDistance: 0.63
+  m_SuspensionDistance: 0.3
   m_ForceAppPointDistance: 0
   m_Mass: 100
   m_WheelDampingRate: 0.25
@@ -1822,17 +1822,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Velocity: (0.00, 0.00, 0.00)
-
-    Speed: 0
-
-    World Pos: (607.53, 4.27,
-    -710.31)
-
-    Forward Vector: (0.00, 0.00, 1.00)
-
-    Right Vector: (1.00, 0.00,
-    0.00)'
+  m_text: "Velocity: (0.00, 0.00, 0.00)\nSpeed: 0\nWorld Pos: (607.53, 4.27, -710.31)\nForward
+    Vector: (0.00, 0.00, 1.00)\nRight Vector: (1.00, 0.00, 0.00)\nRPM:\n   Wheel
+    0: 0\n   Wheel 0: 0\n   Wheel 0: 0\n   Wheel 0: 0\n   "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2223,7 +2215,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.9703833, y: 1}
+    m_SensorSize: {x: 1.9720768, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -5141,8 +5133,8 @@ MonoBehaviour:
   - {fileID: 2221064539038597205}
   - {fileID: 2220458269758586827}
   - {fileID: 2220495861527478257}
-  torque: 1000
-  BreakForce: 3000
+  torque: 2000
+  BreakForce: 6000
   turbo: 500
   CenterOfMass: {x: 0, y: -0.4, z: 0}
   rb: {fileID: 2223154613382076687}

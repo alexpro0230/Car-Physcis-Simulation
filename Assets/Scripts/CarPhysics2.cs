@@ -105,7 +105,7 @@ public class CarPhysics2 : MonoBehaviour
 
     private void OnDrawGizmos() 
     {
-        if (EnablePhysicalDebugging) 
+        if (EnablePhysicalDebugging)
         {
             if (DrawCarForwardDirection) {
                 Gizmos.color = Color.red;
@@ -137,13 +137,21 @@ public class CarPhysics2 : MonoBehaviour
                 Canvas GuiCanvas = GameObject.Find("Debug Canvas").GetComponent<Canvas>();
                 TextMeshProUGUI text = GuiCanvas.gameObject.transform.Find("Vector Debugging Text").GetComponent<TextMeshProUGUI>();
 
+                string rpms = "RPM:\n   ";
+
+                int i = 0;
+                foreach(WheelCollider wheel in allWheels) {
+                    rpms += "Wheel " + i + ": " + (int)wheel.rpm + "\n   ";
+                }
+
                 text.fontSize = 15;
                 text.color = Color.red;
                 text.text = "Velocity: " + rb.velocity + "\n" + 
                     "Speed: " + rb.velocity.magnitude + "\n" +
                     "World Pos: " + transform.position + "\n" +
                     "Forward Vector: " + transform.forward + "\n" + 
-                    "Right Vector: " + transform.right;
+                    "Right Vector: " + transform.right + "\n" + 
+                    rpms;
             }
         }
     }
