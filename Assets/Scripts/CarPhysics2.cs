@@ -139,9 +139,10 @@ public class CarPhysics2 : MonoBehaviour
 
                 string rpms = "RPM:\n   ";
 
-                int i = 0;
+                int i = 1;
                 foreach(WheelCollider wheel in allWheels) {
                     rpms += "Wheel " + i + ": " + (int)wheel.rpm + "\n   ";
+                    i++;
                 }
 
                 text.fontSize = 15;
@@ -152,6 +153,10 @@ public class CarPhysics2 : MonoBehaviour
                     "Forward Vector: " + transform.forward + "\n" + 
                     "Right Vector: " + transform.right + "\n" + 
                     rpms;
+            } else {
+                Canvas GuiCanvas = GameObject.Find("Debug Canvas").GetComponent<Canvas>();
+                TextMeshProUGUI text = GuiCanvas.gameObject.transform.Find("Vector Debugging Text").GetComponent<TextMeshProUGUI>();
+                text.text = string.Empty;
             }
         }
     }
