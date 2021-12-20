@@ -6,9 +6,6 @@ using TMPro;
 
 public class CarPhysics2 : MonoBehaviour
 {
-
-    #region arrays
-
     [Header("Wheel Arrays")]
     public WheelCollider[] frontWheels = new WheelCollider[2];
     public WheelCollider[] backWheels = new WheelCollider[2];
@@ -16,14 +13,12 @@ public class CarPhysics2 : MonoBehaviour
 
     public GameObject[] wheelGraphics = new GameObject[4];
 
-    #endregion
-
-    #region variables
 
     [Header("\nDriving Simulation Variables")]
     public float torque;
     public float BreakForce;
     public float turbo;
+    public Vector3 CenterOfMass;
 
     private bool isBraking;
     private float breakForce;
@@ -31,11 +26,8 @@ public class CarPhysics2 : MonoBehaviour
     [Header("\nComponents")]
     public Rigidbody rb;
 
-    #endregion
-
-    #region Unity Methods
-
     private void Start() {
+        rb.centerOfMass += CenterOfMass;    
         for (int i = 0; i < 4; i++) {
             allWheels[i] = transform.Find("wheel colliders").GetChild(i).GetComponent<WheelCollider>();
         }
@@ -51,10 +43,6 @@ public class CarPhysics2 : MonoBehaviour
         ApplyBrake();
         UpdateWheelGraphics();
     }
-
-    #endregion
-
-    #region simulation
 
 
     void ApplyBrake() {
@@ -80,10 +68,6 @@ public class CarPhysics2 : MonoBehaviour
     }
 
 
-    #endregion
-
-    #region input
-
     void GetInput() {
         if (Input.GetKeyDown(KeyCode.Space)) {
             isBraking = true;
@@ -100,11 +84,6 @@ public class CarPhysics2 : MonoBehaviour
         }
     }
 
-    #endregion
-
-    #region graphic
-
-
     void UpdateWheelGraphics() {
         for (int i = 0; i < wheelGraphics.Length; i++) {
             allWheels[i].GetWorldPose(out Vector3 pos, out Quaternion rotation);
@@ -113,10 +92,6 @@ public class CarPhysics2 : MonoBehaviour
             wheelGraphics[i].transform.rotation = rotation;
         }
     }
-
-    #endregion
-
-    #region debugging
 
     [Header("\nDebugging")]
     public bool EnablePhysicalDebugging;
@@ -172,6 +147,4 @@ public class CarPhysics2 : MonoBehaviour
             }
         }
     }
-
-    #endregion
 }
